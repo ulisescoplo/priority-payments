@@ -26,6 +26,5 @@ jobs:
           npm ci
       - name: deploy
         run: |
-          ncc build input.js -o dist
-          zip -j deploy.zip ./dist/*
+          zip -j deploy.zip ./*
           aws lambda update-function-code --function-name=helloWorld --zip-file=fileb://deploy.zip
